@@ -1,7 +1,7 @@
 # ondemand-interactive
-Configurations for Open OnDemand customized for CERIT-SC. I
+Configurations for Open OnDemand customized for CERIT-SC.
 
-ncludes configurations for interactive apps: 
+Includes configurations for interactive apps: 
   - Jupyter
   - RStudio
   - MATLAB
