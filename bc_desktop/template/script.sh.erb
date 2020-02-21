@@ -9,6 +9,9 @@ cd "${HOME}"
 # Ensure that the user's configured login shell is used
 export SHELL="$(getent passwd $USER | cut -d: -f7)"
 
+module add python36-modules-gcc
+module add turbovnc-2.2.4
+export WEBSOCKIFY_CMD="/cvmfs/software.metacentrum.cz/software/turbovnc/2.2.4/bin/websockify"
 module add xfce-4.14.0
 
 # Start up desktop
