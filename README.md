@@ -6,5 +6,6 @@ Includes configurations for interactive apps:
   - RStudio
   - MATLAB
   - VMD
+  - ANSYS
   
   Based on https://osc.github.io/ood-documentation/master/index.html
