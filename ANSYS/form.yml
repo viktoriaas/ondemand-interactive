@@ -1,0 +1,54 @@
+---
+cluster: "zuphux"
+form:
+  - version
+  - bc_account
+  - bc_num_hours
+  - bc_num_slots
+  - bc_vnc_resolution
+  - bc_email_on_started
+  - bc_queue
+  - custom_memory
+  - available_license
+attributes:
+  bc_account: "null"
+  bc_email_on_started: "null"
+  bc_queue: "phi"
+  bc_num_slots:
+    widget: "number_field"
+    value: "1"
+    label: "Number of CPUs"
+    help:  |
+      "Please set number of CPUs (default = 1)"
+    required: true
+    min: 1
+    max: 128
+  bc_vnc_resolution:
+    required: true
+  version:
+    widget: select
+    label: "ANSYS Workbench version"
+    help: "This defines the version of ANSYS you want to load."
+    options:
+      - [ "2019R3", "ansys-2019-R3" ]
+      - [ "19.2",   "ansys-19.2"    ]
+      - [ "18.2",   "ansys-18.2"    ]
+      - [ "18.0",   "ansys-18.0"    ]
+      - [ "17.2",   "ansys-17.2"    ]
+  available_license:
+    widget: select
+    label: "Available licences"
+    help: "Choose which licence you would like to use"
+    options:
+      - ["ANSYS CFD", "cfd=1"]
+      - ["ANSYS MECHANICAL", "me=1"]
+      - ["ANSYS HPC", "hpc=Z"]
+  custom_memory:
+    widget: "number_field"
+    value: "8"
+    label: "Memory"
+    help:  |
+      "Please set explicit memory in GB (default = 8)"
+    required: true
+    min: 8
+    max: 4000

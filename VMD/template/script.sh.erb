@@ -17,8 +17,6 @@ cd "${HOME}"
   export XDG_CONFIG_HOME="<%= session.staged_root.join("config") %>"
   export XDG_DATA_HOME="<%= session.staged_root.join("share") %>"
   export XDG_CACHE_HOME="$(mktemp -d)"
-  module restore
-  set -x
   /cvmfs/software.metacentrum.cz/software/xfce/4.14.0/bin/xfwm4 --compositor=off --daemon --sm-client-disable
   /usr/bin/xsetroot -solid "#D3D3D3"
   /cvmfs/software.metacentrum.cz/software/xfce/4.14.0/bin/xfsettingsd --sm-client-disable
@@ -29,6 +27,7 @@ cd "${HOME}"
 # Start VMD
 #
 module add vmd-1.9.3
+export PATH=/cvmfs/software.metacentrum.cz/software/virtualgl/2.6.3/bin/:$PATH
 
 # Output debug info
 module list

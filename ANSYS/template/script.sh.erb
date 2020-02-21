@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-#<%- gpu = context.node_type.include?("vis") -%>
-
 # Clean the environment
 module purge
 
@@ -15,7 +13,6 @@ cd "${HOME}"
 #
 
 (
-  export SEND_256_COLORS_TO_REMOTE=1
   export XDG_CONFIG_HOME="<%= session.staged_root.join("config") %>"
   export XDG_DATA_HOME="<%= session.staged_root.join("share") %>"
   export XDG_CACHE_HOME="$(mktemp -d)"
@@ -28,21 +25,14 @@ cd "${HOME}"
 ) &
 
 #
-# Start MATLAB
+# Start ANSYS Workbench
 #
 
 # Load the required environment
-module add  <%= context.version %>
-export PATH=/cvmfs/software.metacentrum.cz/software/virtualgl/2.6.3/bin/:$PATH
+module add <%= context.version %>
 
-# Launch MATLAB
-<%- if gpu -%>
-module load intel/16.0.3 virtualgl
+
+# Launch ANSYS Workbench
 module list
 set -x
-/usr/bin/vglrun matlab -desktop -nosoftwareopengl
-<%- else -%>
-module list
-set -x
-matlab -desktop
-<%- end -%>
+fluent

@@ -1,5 +1,5 @@
 ---
-cluster: "envy"
+cluster: "zuphux"
 form:
   - bc_account
   - bc_num_hours
@@ -8,7 +8,7 @@ form:
   - custom_memory
   - bc_num_slots
 attributes:
-  bc_queue: "ceitec"
+  bc_queue: "ondemand_ga"
   bc_vnc_resolution:
     required: true
   bc_account: "null"
