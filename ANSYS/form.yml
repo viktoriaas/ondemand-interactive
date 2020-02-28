@@ -9,19 +9,19 @@ form:
   - bc_email_on_started
   - bc_queue
   - custom_memory
-  - available_license
+  - executable_command
 attributes:
   bc_account: "null"
   bc_email_on_started: "null"
-  bc_queue: "phi"
+  bc_queue: "ondemand_gui"
   bc_num_slots:
     widget: "number_field"
     value: "1"
     label: "Number of CPUs"
     help:  |
-      "Please set number of CPUs (default = 1)"
+      "Please set number of CPUs (default = 2)"
     required: true
-    min: 1
+    min: 2
     max: 128
   bc_vnc_resolution:
     required: true
@@ -35,14 +35,14 @@ attributes:
       - [ "18.2",   "ansys-18.2"    ]
       - [ "18.0",   "ansys-18.0"    ]
       - [ "17.2",   "ansys-17.2"    ]
-  available_license:
+  executable_command:
     widget: select
-    label: "Available licences"
-    help: "Choose which licence you would like to use"
+    label: "Executable"
+    help: "Choose which ANSYS command you would like to run"
     options:
-      - ["ANSYS CFD", "cfd=1"]
-      - ["ANSYS MECHANICAL", "me=1"]
-      - ["ANSYS HPC", "hpc=Z"]
+      - ["FLUENT", "fluent"]
+      - ["CFX", "cfx5"]
+      - ["WORKBENCH", "runwb2"]
   custom_memory:
     widget: "number_field"
     value: "8"

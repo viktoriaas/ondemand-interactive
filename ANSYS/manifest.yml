@@ -1,10 +1,10 @@
 ---
-name: ANSYS Workbench
+name: ANSYS
 category: Interactive Apps
 subcategory: GUIs
 role: batch_connect
 description: |
-  This app will launch an [ANSYS Workbench] within a [Turbo VNC] server on the
+  This app will launch an [ANSYS] within a [Turbo VNC] server on the
   Zefron 8.
 
   [ANSYS Workbench]: https://www.ansys.com/

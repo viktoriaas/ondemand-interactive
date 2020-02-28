@@ -13,26 +13,21 @@ cd "${HOME}"
 #
 
 (
-  export XDG_CONFIG_HOME="<%= session.staged_root.join("config") %>"
-  export XDG_DATA_HOME="<%= session.staged_root.join("share") %>"
-  export XDG_CACHE_HOME="$(mktemp -d)"
-  module restore
-  set -x
-  /cvmfs/software.metacentrum.cz/software/xfce/4.14.0/bin/xfwm4 --compositor=off --daemon --sm-client-disable
-  /usr/bin/xsetroot -solid "#D3D3D3"
-  /cvmfs/software.metacentrum.cz/software/xfce/4.14.0/bin/xfsettingsd --sm-client-disable
-  /cvmfs/software.metacentrum.cz/software/xfce/4.14.0/bin/xfce4-panel --sm-client-disable
+ module add <%= context.version %>
+ <% if context.executable_command == "fluent" %>
+ 	<%= context.executable_command %> -t<%= context.bc_num_slots%> -tm<%= context.bc_num_slots %>
+ <% else %>
+ 	<%= context.executable_command %>
+ <% end %>
 ) &
 
-#
-# Start ANSYS Workbench
-#
+/cvmfs/software.metacentrum.cz/software/xfce/4.14.0/bin/xfwm4 --compositor=off --daemon --sm-client-disable
+/usr/bin/xsetroot -solid "#D3D3D3"
+/cvmfs/software.metacentrum.cz/software/xfce/4.14.0/bin/xfsettingsd --sm-client-disable
+/cvmfs/software.metacentrum.cz/software/xfce/4.14.0/bin/xfce4-panel --sm-client-disable
+export XDG_CONFIG_HOME="<%= session.staged_root.join("config") %>"
+export XDG_DATA_HOME="<%= session.staged_root.join("share") %>"
+export XDG_CACHE_HOME="$(mktemp -d)"
+/cvmfs/software.metacentrum.cz/software/xfce/4.14.0/bin/xfce4-session
 
-# Load the required environment
-module add <%= context.version %>
-
-
-# Launch ANSYS Workbench
-module list
-set -x
-fluent
+# in case of many crashes, xmesg to save wrkspace with sleep 600
